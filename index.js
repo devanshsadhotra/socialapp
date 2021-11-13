@@ -3,12 +3,18 @@ import express from "express";
 const app= express()
 import dateFormat, { masks } from "dateformat";
 const PORT = process.env.PORT || 4000
- 
+import YAML  from "yamljs";
+//Swagger Docs//
+import swaggerUi from 'swagger-ui-express'
+const swaggerDocument = YAML.load('./swagger.yaml');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get("/",(req, res)=>{
     res.status(200).send("<h1>hello from loc</h1>")
 
 })
-
+/**
+ * 
+ */
 app.get("/api/v1/instagram",(req,res)=>{
     const instaSocial={
         userName:"devanshsadhotra",

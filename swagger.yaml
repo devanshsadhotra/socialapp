@@ -1,0 +1,112 @@
+openapi: 3.0.0 
+info: 
+  title : Social App
+  description: Our first social app at LCO - Devansh
+  version: 1.0.1
+servers:
+  - url: http://localhost:4000/api/v1
+    description: Optional server description, e.g. Main (production) server
+  - url: https://localhost:4000/api/v1
+    description: Dummy API url, won't work
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
+    cookieAuth:         # arbitrary name for the security scheme; will be used in the "security" key later
+      type: apiKey
+      in: cookie
+      name: JSESSIONID  # cookie name
+
+paths: 
+  /instagram: 
+    get:
+      summary: returns username followers and following
+      responses: 
+        '200':
+          description: return an object 
+          content: 
+            application/JSON:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  follower:
+                    type: string
+                  following:
+                    type: string
+
+    post:
+      summary: returns username followers and following
+      responses: 
+        '200':
+          description: return an object 
+          content: 
+            application/JSON:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  follower:
+                    type: string
+                  following:
+                    type: string
+  /facebook: 
+    get:
+      summary: returns username followers and following
+      responses: 
+        '200':
+          description: return an object 
+          content: 
+            application/JSON:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  follower:
+                    type: string
+                  following:
+                    type: string
+
+    post:
+      summary: returns username followers and following
+      responses: 
+        '200':
+          description: return an object 
+          content: 
+            application/JSON:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  follower:
+                    type: string
+                  following:
+                    type: string
+  /{token}: 
+    get:
+      summary: returns whatever in params 
+      parameters:
+        - name: token
+          default: 5
+          in: path
+          scehma:
+            type: string
+      responses: 
+        '200':
+          description: return an object 
+          content: 
+            application/JSON:
+              schema:
+                type: object
+                properties:
+                  params:
+                    type: string
+                 
