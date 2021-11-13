@@ -37,7 +37,7 @@ app.get("/api/v1/linkedIn",(req,res)=>{
     }
     res.status(200).json(linkedInSocial)
 })
-app.get("/api/v1/token",(req,res)=>{
+app.get("/api/v1/:token",(req,res)=>{
     console.log(req.params.token)
     res.status(200).json({ param:req.params.token})
 })
