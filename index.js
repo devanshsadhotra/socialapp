@@ -2,8 +2,8 @@ console.log("hello from D-talks, wassup! ")
 import express from "express";
 const app= express()
 import dateFormat, { masks } from "dateformat";
-const PORT =4000 || process.env.PORT
-
+const PORT = process.env.PORT || 4000
+ 
 app.get("/",(req, res)=>{
     res.status(200).send("<h1>hello from loc</h1>")
 
